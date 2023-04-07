@@ -1,3 +1,6 @@
+# 2019-23PECCSE-PROJECT-C20
+LUNG CANCER PREDICTION USING DECISION TREE CLASSIFIER ALGORITHM-SMLT 
+
 Instructions to Read:
 
 step 1 : Download Anaconda navigator & VS Code on your computer.
