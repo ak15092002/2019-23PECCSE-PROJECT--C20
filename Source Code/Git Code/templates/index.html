@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>TITLE</title>
+  {% load static %}
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style>
+.back{
+  background-image:url("{% static 'image/img.jpg' %}");
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-attachment: fixed;
+}
+.white{
+color:black;
+font-size:larger;
+}
+.nspace{
+margin:15px 15px 30px 30px;
+padding:9px 10px;
+background: cyan;
+width:500px
+}
+.space{
+margin:10px 30px;
+padding:10px 10px;
+background: cyan;
+width:500px
+}
+.gap{
+padding:10px 20px;
+}
+</style>
+  
+</head>
+
+<body class="back">
+ <div>
+	<div class="jumbotron">
+	<h1 style="text-align:center">LUNG CANCER PREDICTION </h1>
+	
+	</div>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form class="form-group" action="{% url 'predict' %}"method="post">
+    	{% csrf_token %}
+		<div class="row">
+		<div class="gap col-md-6 ">
+
+		<label class="white" for="">Gender</label>
+		<input type="number" class="space form-control" step="0.01" name="Gender" placeholder="1 is Male 0 is Female" required="required" /><br>
+
+		<label class="white"  for="">AGE</label>
+		<input type="number" class="space form-control" step="0.01" name="Age" placeholder="AGE" required="required" /><br>
+
+		<label class="white"  for="">Smoking</label>
+		<input type="number" class="space form-control" step="0.01" name="Smoking" placeholder="Yes 1 N0 1" required="required" /><br>
+
+		<label class="white" for="">Yellow_fingers</label>
+		<input type="number" class="space form-control" step="0.01" name="Yellow_fingers" placeholder="YELLOW_FINGERS" required="required" /><br>
+
+
+		<label class="white"  for="">Anxiety</label>
+		<input type="number" class="space form-control" step="0.01" name="Anxiety" placeholder="ANXIETY" required="required" /><br>
+
+		<label class="white"  for="">Peer_pressure	</label>
+		<input type="number" class="space form-control" step="0.01" name="Peer_pressure" placeholder="PEER_PRESSURE" required="required" /><br>
+
+		<label class="white"  for="">Chronic_disease</label>
+		<input type="number" class="space form-control" step="0.01" name="Chronic_disease" placeholder="CHRONIC_DISEASE" required="required" /><br>
+
+		<label class="white"  for="">Fatigue</label>
+		<input type="number" class="space form-control" step="0.01" name="Fatigue" placeholder="FATIQUE" required="required" /><br>
+		</div>
+
+<div class="gap col-md-6">
+		<label class="white"  for="">Allergy</label>
+		<input type="number" class="space form-control" step="0.01" name="Allergy" placeholder="ALLERGY" required="required" /><br>
+
+		<label class="white"  for="">Wheezing</label>
+		<input type="number" class="space form-control" step="0.01" name="Wheezing" placeholder="WHEEZING" required="required" /><br>
+
+		<label class="white"  for="">Alcohol_Consuming</label>
+		<input type="number" class="space form-control" step="0.01" name="Alcohol_Consuming" placeholder="ALCOHOL_CONSUMING" required="required" /><br>
+
+		<label class="white"  for="">Coughing</label>
+		<input type="number" class="space form-control" step="0.01" name="Coughing" placeholder="COUGHING" required="required" /><br>
+
+		<label class="white"  for="">Shortness_of_breath</label>
+		<input type="number" class="space form-control" step="0.01" name="Shortness_of_breath" placeholder="SHORTNESS_OF_BREATH" required="required" /><br>
+
+		<label class="white"  for="">Swallowing_difficulty</label>
+		<input type="number" class="space form-control" step="0.01" name="Swallowing_difficulty" placeholder="SWALLOWING_DIFFICULTY" required="required" /><br>
+
+
+		<label class="white"  for="">chest_pain</label>
+		<input type="number" class="space form-control" step="0.01" name="chest_pain" placeholder="CHEST_PAIN" required="required" /><br>
+
+</div>
+</div>
+
+<div style="padding:2% 35%">
+  <button type="submit" class="btn btn-success btn-block" style="width:350px;padding:20px">Predict</button>		
+</div>
+      
+    </form>
+
+   <br>
+   <br>
+<div  style="background:yellow;padding:2% 40%">
+   {{ prediction_text }}
+</div>
+ </div>
+
+
+</body>
+</html>
